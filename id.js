@@ -5,8 +5,20 @@
   hhaW4oKnppcChzWy0yOjotMl0sIHNbOjotMl0pKSk=
 \*======================================================================*/
 
-if (NAMESPACE == null
-        || typeof (NAMESPACE) == 'undefined') {
+/*
+ * Nick Kolev:
+ * 
+ * At this point, 'NAMESPACE' is not defined.
+ * During the if evaluation, an error is raised in the browser
+ * and the code below if not executed.
+ * (for a quick reference, the original code is commented below,
+ * although not necessary as Git tracks the changes)
+ * 
+ * if (NAMESPACE == null	<-- this to be removed
+ *         || typeof (NAMESPACE) == 'undefined') {
+ */
+
+if (typeof (NAMESPACE) === 'undefined') {	// or 'var NAMESPACE = NAMESPACE || { ... }'
     NAMESPACE = {};
 
     // Creates an object that allocates a new or references an
@@ -66,3 +78,8 @@ if (NAMESPACE == null
 
     NAMESPACE.resource = resource;
 }
+
+/*
+ * Without the whole picture, can't judge the logic.
+ * The code is good (elegant, readable)
+ */
