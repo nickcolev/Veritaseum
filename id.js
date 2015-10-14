@@ -81,5 +81,6 @@ if (typeof (NAMESPACE) === 'undefined') {	// or 'var NAMESPACE = NAMESPACE || { 
 
 /*
  * Without the whole picture, can't judge the logic.
- * The code is good (elegant, readable)
+ * The code is good (elegant, readable;
+ * 'NAMESPACE' is not a good name though)
  */
