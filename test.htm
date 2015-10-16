@@ -1,0 +1,26 @@
+<html><head><title>Veritaseum id.js Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!-- include the 'id.js' -->
+<script type="text/javascript" src="id.js"></script>
+</head>
+<body>
+
+<h3>Veritaseum <tt>id.js</tt> Test</h3>
+
+<pre><b>Result:</b>
+getId: <span id="getId"></span>
+getExpensiveResource: <span id="getExpensiveResource"></span>
+</pre>
+
+<p><small>(see the source code for details)</small></p>
+
+<script type="text/javascript">
+// Instantiate the object
+var obj = new NAMESPACE.resource(5);
+// Use it's methods
+document.getElementById("getId").innerText = obj.getId();
+document.getElementById("getExpensiveResource").innerText = obj.getExpensiveResource().value;
+obj.close();
+</script>
+
+</body></html>
