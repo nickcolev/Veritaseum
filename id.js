@@ -36,29 +36,30 @@ if (typeof (NAMESPACE) === 'undefined') {	// or 'var NAMESPACE = NAMESPACE || { 
 
         // Public methods
         var getExpensiveResource = function () {
-            return _expensive_resource;
+            return _expensive_resource;		// closure
         }
         
         persona.getExpensiveResource = getExpensiveResource;
 
         var getId = function () {
-            return _id;
+            return _id;						// closure
         }
         
         persona.getId = getId;
 
         var close = function () {
             delete _all_ids[_id];
-            this._closed = true;
+            _closed = true;					// closure
         }
 
         persona.close = close;
         
         // Private methods
         function _lookupOrCreateExpensiveResourceById(id) {
-            _expensive_resource = _all_ids[id];
-            
-            if (_expensive_resource == null) {
+            _expensive_resource = _all_ids[id];	/*	On initialization '_all_ids[id]' is undefined (see definition above)
+													The assignment leaves '_expensive_resource' undefined
+													(note the 'closure' here) */
+            if (typeof(_expensive_resource) === 'undefined') {	// That's why we should check for 'undefined'
                 // Just pretend for the sake of this example
                 _expensive_resource = {
                     value: "I'm a very expensive resource associated with ID " + id
